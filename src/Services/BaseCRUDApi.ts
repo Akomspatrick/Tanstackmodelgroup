@@ -1,5 +1,5 @@
 import { ProblemDetails, ProblemRoot } from 'ModelManagement/Types/ModelManagementInterfaces';
-import axios, { AxiosError, AxiosInstance } from 'axios';
+import axios, {  AxiosInstance } from 'axios';
 
 export const addData = async <T, R>(axiosInstance: AxiosInstance, inputData: T): Promise<R | unknown> => {
   const response = await axiosInstance.post<R>(

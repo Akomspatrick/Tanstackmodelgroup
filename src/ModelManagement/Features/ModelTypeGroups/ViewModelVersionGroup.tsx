@@ -1,33 +1,25 @@
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { GridColDef, GridValidRowModel } from '@mui/x-data-grid';
 import SimpleDataTable from '../../../Components/SimpleDataTable';
-import { defaultButtonRadius } from '../../../Constants/componenetsConstants';
+import { defaultButtonRadius } from '../../../Constants/componentsConstants';
 import { useNavigate } from 'react-router-dom';
 import { useGetSingleTestingModeGroup, useGetTestingModeGroups } from '../../Hooks/useGetModelTypeGroupHooks';
 
 const ViewModelVersionGroup = () => {
   const navigate = useNavigate();
   const result = useGetTestingModeGroups();
-  const result2 = useGetSingleTestingModeGroup("1111e");
+  const result2 = useGetSingleTestingModeGroup('1111e');
 
   if (result2.isError) {
-    
-    console.log('result2.error',result2.error.detail);
-    console.log('result2.error',result2.error.status);
-    console.log('result2.error',result2.error.title);
-
-
-
+    console.log('result2.error', result2.error.detail);
+    console.log('result2.error', result2.error.status);
+    console.log('result2.error', result2.error.title);
   }
-
-
 
   const newrows: GridValidRowModel[] = [];
   if (result.isSuccess) {
-
     if (result.data && result.data.length > 0) {
       result.data.forEach((element) => {
-      
         newrows.push({
           id: element.guidId,
 

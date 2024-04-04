@@ -1,5 +1,5 @@
 import { Box, Button, Paper, TextField, Typography } from '@mui/material';
-import { defaultButtonRadius, autoProcessingModes } from '../../../Constants/componenetsConstants';
+import { defaultButtonRadius, autoProcessingModes } from '../../../Constants/componentsConstants';
 import { useForm } from 'react-hook-form';
 import { ModelVersionGroupCreateRequestDTO } from '../../Types/ModelManagementTypes';
 import { DevTool } from '@hookform/devtools';

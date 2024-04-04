@@ -1,6 +1,16 @@
-import { Paper, Box, Typography,  TextField, IconButton, InputAdornment, ListSubheader, ListItem, ListItemText } from '@mui/material';
+import {
+  Paper,
+  Box,
+  Typography,
+  TextField,
+  IconButton,
+  InputAdornment,
+  ListSubheader,
+  ListItem,
+  ListItemText,
+} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { defaultButtonRadius } from '../../../Constants/componenetsConstants';
+import { defaultButtonRadius } from '../../../Constants/componentsConstants';
 import { useEffect, useState } from 'react';
 import { useGetTestingModeGroups } from '../../Hooks/useGetModelTypeGroupHooks';
 import { TestingModeGroupResponseDTO } from '../../Types/ModelManagementInterfaces';
@@ -14,7 +24,7 @@ const paperStyle = {
 const Searchbar = () => {
   const [search, setSearch] = useState('');
   const result = useGetTestingModeGroups();
-  const[data, setData] = useState<TestingModeGroupResponseDTO[]>([]);
+  const [data, setData] = useState<TestingModeGroupResponseDTO[]>([]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
@@ -22,29 +32,24 @@ const Searchbar = () => {
   };
 
   useEffect(() => {
-    let x:TestingModeGroupResponseDTO[]=[];
+    let x: TestingModeGroupResponseDTO[] = [];
     if (result.isSuccess && result.data) {
-
-        // x = result.data.filter((item) => {
-        //     return { 
-        //         testingModeGroupName:item.testingModeGroupName,
-        //         testingMode: item.testingMode,
-        //         description: item.description,
-        //         guidId: item.guidId
-        //      };
-         x= result.data.filter((item) =>
-          { 
-            return(
-             item.testingModeGroupName?.toLowerCase().includes(search.toLowerCase())
-             || item.testingMode?.toLowerCase().includes(search.toLowerCase())
-             || item.description?.toLowerCase().includes(search.toLowerCase())   
-             );
-            }
-          
-          );        
-        }
-      setData(x);
-    
+      // x = result.data.filter((item) => {
+      //     return {
+      //         testingModeGroupName:item.testingModeGroupName,
+      //         testingMode: item.testingMode,
+      //         description: item.description,
+      //         guidId: item.guidId
+      //      };
+      x = result.data.filter((item) => {
+        return (
+          item.testingModeGroupName?.toLowerCase().includes(search.toLowerCase()) ||
+          item.testingMode?.toLowerCase().includes(search.toLowerCase()) ||
+          item.description?.toLowerCase().includes(search.toLowerCase())
+        );
+      });
+    }
+    setData(x);
   }, [search]);
 
   return (
@@ -73,51 +78,43 @@ const Searchbar = () => {
           <Typography component="span" variant="h6">
             Model Version Groups Search
           </Typography>
-
-
         </Box>
         <Box>
-
           <TextField
-                      id="outlined-search"
-                      sx={{ borderRadius: defaultButtonRadius, marginBottom: 4 }}
-                      label="Search field"
-                      type="search"
-                      fullWidth
-                      onChange={handleSearch}
-         
-          variant="outlined"
-
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="end">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-
-          }}
-        />
+            id="outlined-search"
+            sx={{ borderRadius: defaultButtonRadius, marginBottom: 4 }}
+            label="Search field"
+            type="search"
+            fullWidth
+            onChange={handleSearch}
+            variant="outlined"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="end">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
         </Box>
         <Box component="div" sx={{ overflow: 'auto' }}>
-             {data && result.data && data.length > 0 && (
-               
-                <ul>
-                    {/* {data.map((item) => (
+          {data && result.data && data.length > 0 && (
+            <ul>
+              {/* {data.map((item) => (
                         <li key={item.guidId}>{item.testingModeGroupName}</li>
                     ))}  */}
 
-            <ListSubheader>"Search Result"</ListSubheader>
-            {data.map((item) => (
-              <ListItem key={`item-${item.guidId}-${item}`}
-              onClick={_ => alert(item.testingModeGroupName)}>
-                <ListItemText primary={` ${item.testingModeGroupName}- ${item.testingMode}`}  secondary={item.description} />
-              </ListItem>
-            ))}
-                </ul>
-                
-                
-            
-            )}    
+              <ListSubheader>"Search Result"</ListSubheader>
+              {data.map((item) => (
+                <ListItem key={`item-${item.guidId}-${item}`} onClick={(_) => alert(item.testingModeGroupName)}>
+                  <ListItemText
+                    primary={` ${item.testingModeGroupName}- ${item.testingMode}`}
+                    secondary={item.description}
+                  />
+                </ListItem>
+              ))}
+            </ul>
+          )}
         </Box>
       </Box>
     </Paper>

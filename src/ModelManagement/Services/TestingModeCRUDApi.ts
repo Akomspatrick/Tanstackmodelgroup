@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { BaseURLs,EndPoints } from '../../Constants/APIEndPoints';
+//import { BaseURLs,EndPoints } from '../../Constants/APIEndPoints';
 import { addData, deleteData, getAllData, getData, updateData } from '../../Services/BaseCRUDApi';
 import {  TestingModeGroupCreateRequestDTO, TestingModeGroupResponseDTO } from '../Types/ModelManagementInterfaces';
+import { BaseURLs, EndPoints } from 'Constants/componentsConstants';
 
 export default {
-  TestingModeCRUDApi(url = BaseURLs.ModelManagementURL +EndPoints.MODEL_MANAGEMENT.TESTINGMODEGROUP) {
+  TestingModeCRUDApi_UseGenericVersion_CRUDApi_Instead(url = BaseURLs.ModelManagementURL +EndPoints.MODEL_MANAGEMENT.TESTINGMODEGROUP) {
     const axiosInstance = axios.create({ baseURL: url });
 
     return {

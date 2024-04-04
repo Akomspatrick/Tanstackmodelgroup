@@ -1,5 +1,33 @@
+export const defaultButtonRadius = 4;
+export const autoProcessingModes = [
+  {
+    value: 'AUTOMATIC',
+    label: 'AUTOMATIC',
+  },
+  {
+    value: 'MANUAL',
+    label: 'MANUAL',
+  },
+];
+
+type QueryKeysType = {
+  testingModeGroupQueryCreateKey: string;
+  testingModeGroupQueryGetKey: string;
+  testingModeGroupQueryGetSingleKey: string;
+
+};
+
+
+export const ALLQueryKeys :QueryKeysType= { 
+  testingModeGroupQueryCreateKey : 'testingModeGroupQueryCreateKey',
+  testingModeGroupQueryGetKey : 'testingModeGroupQueryGetKey',
+  testingModeGroupQueryGetSingleKey : 'testingModeGroupQueryGetSingleKey',
+};
+
+
+
 //export default const URL ="http://localhost:5007/"
-type URLsOLD = {
+type URLs = {
   ModelManagementURL: string;
   ProductionManagementURL: string;
   RegistrationManagementURL: string;
@@ -7,7 +35,7 @@ type URLsOLD = {
   TokenURL: string;
 };
 
-export const BaseURLsOLD: URLsOLD = {
+export const BaseURLs: URLs = {
   ModelManagementURL: 'http://localhost:5007/api/',
   ProductionManagementURL: 'http://localhost:5008/api/',
   RegistrationManagementURL: 'http://localhost:5009/api/',
@@ -15,7 +43,7 @@ export const BaseURLsOLD: URLsOLD = {
   TokenURL: 'http://localhost:5011/',
 };
 
-export const EndPointsOLD = {
+export const EndPoints = {
   REGISTRATION_MANAGEMENT: {
     REGISTER_USER: '/api/v1/user/register',
     LOGIN_USER: '/api/v1/user/login',
