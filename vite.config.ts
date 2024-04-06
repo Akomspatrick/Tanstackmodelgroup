@@ -14,4 +14,9 @@ export default defineConfig({
     pool: 'forks',
     css: true,
   },
+  server: {
+    fs: {
+      cachedChecks: false
+    }
+  }
 })

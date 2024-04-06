@@ -1,31 +1,3 @@
-export const defaultButtonRadius = 4;
-export const autoProcessingModes = [
-  {
-    value: 'AUTOMATIC',
-    label: 'AUTOMATIC',
-  },
-  {
-    value: 'MANUAL',
-    label: 'MANUAL',
-  },
-];
-
-type QueryKeysType = {
-  testingModeGroupQueryCreateKey: string;
-  testingModeGroupQueryGetKey: string;
-  testingModeGroupQueryGetSingleKey: string;
-
-};
-
-
-export const ALLQueryKeys :QueryKeysType= { 
-  testingModeGroupQueryCreateKey : 'testingModeGroupQueryCreateKey',
-  testingModeGroupQueryGetKey : 'testingModeGroupQueryGetKey',
-  testingModeGroupQueryGetSingleKey : 'testingModeGroupQueryGetSingleKey',
-};
-
-
-
 //export default const URL ="http://localhost:5007/"
 type URLs = {
   ModelManagementURL: string;

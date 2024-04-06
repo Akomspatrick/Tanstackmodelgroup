@@ -1,15 +1,14 @@
 import {  useQuery } from '@tanstack/react-query';
+import { BaseURLs, EndPoints } from '../../../src/ConstantValues/APIEndPoints';
+import { ALLQueryKeys } from '../../../src/ConstantValues/TanstackQueryConstant';
 import { ProblemDetails, TestingModeGroupCreateRequestDTO, TestingModeGroupResponseDTO } from 'ModelManagement/Types/ModelManagementInterfaces';
 
-//import { BaseURLs, EndPoints } from 'Constants/APIEndPoints';
-import { ALLQueryKeys, BaseURLs, EndPoints } from 'Constants/componentsConstants';
-import NewCRUDApi from './NewCRUDApi';
-
+import CRUDApi from '../../../src/Services/CRUDApi';
 //https://www.youtube.com/watch?v=8K1N3fE-cDs
 export const useGetTestingModeGroups = () => {
   return useQuery({
     queryKey: [ALLQueryKeys.testingModeGroupQueryGetKey],
-    queryFn: NewCRUDApi<TestingModeGroupCreateRequestDTO, TestingModeGroupResponseDTO>(
+    queryFn: CRUDApi<TestingModeGroupCreateRequestDTO, TestingModeGroupResponseDTO>(
       BaseURLs.ModelManagementURL + EndPoints.MODEL_MANAGEMENT.TESTINGMODEGROUP,
     ).getAllData,
     
@@ -17,13 +16,11 @@ export const useGetTestingModeGroups = () => {
 };
 
 export const useGetSingleTestingModeGroup = ( id: string ) => {
-  return useQuery<TestingModeGroupResponseDTO,ProblemDetails>({
+  return useQuery<TestingModeGroupResponseDTO | undefined, Error>({
     queryKey: [ALLQueryKeys.testingModeGroupQueryGetSingleKey,id],
-    queryFn:()=>NewCRUDApi<TestingModeGroupCreateRequestDTO, TestingModeGroupResponseDTO>(
+    queryFn:()=>CRUDApi<TestingModeGroupCreateRequestDTO, TestingModeGroupResponseDTO>(
       BaseURLs.ModelManagementURL + EndPoints.MODEL_MANAGEMENT.TESTINGMODEGROUP,
-    ).getData(id),  
-
-    
+    ).getData(id),      
   },
 
   );

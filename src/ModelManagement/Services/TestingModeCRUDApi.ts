@@ -2,7 +2,8 @@ import axios from 'axios';
 //import { BaseURLs,EndPoints } from '../../Constants/APIEndPoints';
 import { addData, deleteData, getAllData, getData, updateData } from '../../Services/BaseCRUDApi';
 import {  TestingModeGroupCreateRequestDTO, TestingModeGroupResponseDTO } from '../Types/ModelManagementInterfaces';
-import { BaseURLs, EndPoints } from 'Constants/componentsConstants';
+import { BaseURLs, EndPoints } from 'ConstantValues/APIEndPoints';
+//import { BaseURLs, EndPoints } from 'Constants/componentsConstants';
 
 export default {
   TestingModeCRUDApi_UseGenericVersion_CRUDApi_Instead(url = BaseURLs.ModelManagementURL +EndPoints.MODEL_MANAGEMENT.TESTINGMODEGROUP) {

@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -10,6 +9,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Store from './Store/Store';
 import CreateModelVersionGroup from './ModelManagement/Features/ModelTypeGroups/CreateModelVersionGroup.tsx';
 import ViewModelVersionGroup from './ModelManagement/Features/ModelTypeGroups/ViewModelVersionGroup.tsx';
+import React from 'react';
 //const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

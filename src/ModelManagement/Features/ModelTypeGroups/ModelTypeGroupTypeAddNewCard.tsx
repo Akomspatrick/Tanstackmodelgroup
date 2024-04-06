@@ -1,11 +1,11 @@
-import React from 'react';
+import { useState } from 'react';
 import { useCreateModelTypeGroup } from '../../Hooks/useCreateModelTypeHooks';
 import { Guid } from 'guid-typescript';
 
 const ModelTypeGroupTypeAddNewCard = () => {
-  const [description, setDescription] = React.useState<string>('');
-  const [modelTypeGroupName, setModelTypeGroupName] = React.useState<string>('');
-  const [testingMode, setTestingMode] = React.useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [modelTypeGroupName, setModelTypeGroupName] = useState<string>('');
+  const [testingMode, setTestingMode] = useState<string>('');
   const { mutateAsync: addModelTypeGroupDataMutation } = useCreateModelTypeGroup();
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

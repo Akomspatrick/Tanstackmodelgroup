@@ -1,5 +1,5 @@
 import { Box, Button, Paper, TextField, Typography } from '@mui/material';
-import { defaultButtonRadius, autoProcessingModes } from '../../../Constants/componentsConstants';
+//import { defaultButtonRadius, autoProcessingModes } from '../../../Constants/componentsConstants';
 import { useForm } from 'react-hook-form';
 import { ModelVersionGroupCreateRequestDTO } from '../../Types/ModelManagementTypes';
 import { DevTool } from '@hookform/devtools';
@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setModelVersionGroup } from '../../Reducers/SomethingReducer';
 import { selectModelVersionGroup } from '../../../Store/Store';
 import { useNavigate } from 'react-router-dom';
-
+//import { autoProcessingModes, defaultButtonRadius } from 'ConstantValues/ComponentsConstants';
+import { autoProcessingModes, defaultButtonRadius } from '../../../../src/ConstantValues/ComponentsConstants'
 const CreateModelVersionGroup = () => {
   const dispatch = useDispatch();
   const modelversionsgropus = useSelector(selectModelVersionGroup);
